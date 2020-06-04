@@ -3,6 +3,6 @@ This proyect is a store simulation that uses react related technologies and othe
 
 # Technologies in place:
 ## Front end
-### React
-### React-router
-### SASS
+- React
+- React-router
+- SASS
