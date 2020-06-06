@@ -3,6 +3,8 @@ import './signIn.styles.scss'
 import FormInput from '../form-input/FormInput';
 import CustomButton from '../custom-button/CustomButton';
 
+import { signInWithGoole } from '../../firebase/firebase.utils'
+
 class SignIn extends Component {
     constructor(props) {
         super(props);
@@ -37,7 +39,10 @@ class SignIn extends Component {
                         value={this.state.email}
                         handleChange={this.handleChange}
                         required />
-                    <CustomButton type="submit">Submit form</CustomButton>
+                    <div className="buttons">
+                        <CustomButton type="submit">Sign In</CustomButton>
+                        <CustomButton onClick={signInWithGoole} isGoogleSignIn>Sign In with Google</CustomButton>
+                    </div>
                 </form>
             </div>
         );
