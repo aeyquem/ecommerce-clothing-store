@@ -6,3 +6,5 @@ This proyect is a store simulation that uses react related technologies and othe
 - React
 - React-router
 - SASS
+## External services
+- Firebase
