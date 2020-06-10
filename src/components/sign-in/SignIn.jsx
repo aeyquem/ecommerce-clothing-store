@@ -3,7 +3,7 @@ import './signIn.styles.scss'
 import FormInput from '../form-input/FormInput';
 import CustomButton from '../custom-button/CustomButton';
 
-import { signInWithGoole } from '../../firebase/firebase.utils'
+import { auth, signInWithGoole } from '../../firebase/firebase.utils'
 
 class SignIn extends Component {
     constructor(props) {
@@ -15,9 +15,18 @@ class SignIn extends Component {
         }
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
-        this.setState({ email: '', password: '' });
+
+        const { email, password } = this.state;
+
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            this.setState({ email: '', password: '' });
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     handleChange = (event) => {
@@ -36,7 +45,7 @@ class SignIn extends Component {
                     <FormInput type="password"
                         name="password"
                         label="password"
-                        value={this.state.email}
+                        value={this.state.password}
                         handleChange={this.handleChange}
                         required />
                     <div className="buttons">
