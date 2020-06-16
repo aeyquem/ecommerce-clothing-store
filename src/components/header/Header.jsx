@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.utils'
+import CartIcon from '../cart-icon/CartIcon';
+import CartDropdown from '../cart-dropdown/CartDropdown';
 
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
 
     let signButton;
     if (currentUser) {
@@ -26,14 +28,19 @@ const Header = ({ currentUser }) => {
                 <Link className="option" to="/shop">SHOP</Link>
                 <Link className="option" to="/contact">CONTACT</Link>
                 {signButton}
+                <CartIcon />
             </div>
+            {
+                hidden ? null : <CartDropdown />
+            }
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => {
     return {
-        currentUser: state.user.currentUser
+        currentUser,
+        hidden
     };
 }
 
