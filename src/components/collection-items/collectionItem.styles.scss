@@ -1,5 +1,5 @@
 .collection-item {
-    width: 22vw;
+    width: 20vw;
     display: flex;
     flex-direction: column;
     height: 350px;
@@ -31,7 +31,6 @@
             opacity: 0.85;
             display: flex;
         }
-
     }
 
     .collection-footer {
@@ -49,9 +48,5 @@
         .price {
             width: 10%;
         }
-
-
     }
-
-
 }
