@@ -12,3 +12,4 @@ This proyect is a store simulation that uses react related technologies and othe
 ## External services
 - Firebase
 - Heroku
+- Stripe
