@@ -11,3 +11,4 @@ This proyect is a store simulation that uses react related technologies and othe
 - SASS
 ## External services
 - Firebase
+- Heroku
