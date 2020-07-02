@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.utils'
-import CartIcon from '../cart-icon/CartIcon';
-import CartDropdown from '../cart-dropdown/CartDropdown';
+import CartIcon from '../cart-icon/CartIcon.component';
+import CartDropdown from '../cart-dropdown/CartDropdown.component';
 
 import { selectCurrentUser } from '../../redux/user/user.selectors'
 import { selectCartButonHidden } from '../../redux/cart/cart.selectors'
