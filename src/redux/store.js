@@ -6,7 +6,11 @@ import { persistStore } from 'redux-persist'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
-const middlewares = [logger];
+const middlewares = [];
+
+if (process.env.NODE_ENV === 'development') {
+    middlewares = [logger];
+}
 
 const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(applyMiddleware(...middlewares)));
 // const store = createStore(rootReducer, applyMiddleware(...middlewares));
