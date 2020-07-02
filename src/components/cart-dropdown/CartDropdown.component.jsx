@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-import CustomButton from '../custom-button/CustomButton.Component'
+import CustomButton from '../custom-button/CustomButton.component'
 import './cartDropDown.styles.scss'
-import CartItem from '../cart-item/CartItem'
+import CartItem from '../cart-item/CartItem.component'
 import { selectCartItems } from '../../redux/cart/cart.selectors'
 import { createStructuredSelector } from 'reselect'
 import { withRouter } from 'react-router-dom';

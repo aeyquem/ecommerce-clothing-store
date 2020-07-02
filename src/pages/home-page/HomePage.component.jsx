@@ -1,5 +1,5 @@
 import React from 'react'
-import DirectoryMenu from '../../components/directory-menu/DirectoryMenu'
+import DirectoryMenu from '../../components/directory-menu/DirectoryMenu.component'
 import HomePageContainer from './HomePage.styles'
 
 const HomePage = () => {
