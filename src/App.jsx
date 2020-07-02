@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import HomePage from './pages/home-page/HomePage';
+import HomePage from './pages/home-page/HomePage.component';
 import ShopPage from './pages/shop-page/ShopPage';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Header from './components/header/Header'
+import Header from './components/header/Header.component'
 import SignInAndRegisterPage from './pages/sign-in-and-register-page/SignInAndRegisterPage';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { connect } from 'react-redux';

@@ -1,5 +1,6 @@
 import React from 'react'
 import './header.styles.scss'
+import { HeaderContainer, LinkContainer, OptionsContainer, OptionDiv, OptionLink } from './Header.styles'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
@@ -12,32 +13,31 @@ import { selectCurrentUser } from '../../redux/user/user.selectors'
 import { selectCartButonHidden } from '../../redux/cart/cart.selectors'
 import { createStructuredSelector } from 'reselect'
 
-
 const Header = ({ currentUser, hidden }) => {
 
     let signButton;
     if (currentUser) {
-        signButton = <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div>
+        signButton = <OptionDiv onClick={() => auth.signOut()}>SIGN OUT</OptionDiv>
     }
     else {
-        signButton = <Link className="option" to="/signin">SIGN IN</Link>
+        signButton = <OptionDiv as={Link} to="/signin">SIGN IN</OptionDiv>
     }
 
     return (
-        <div className="header">
-            <Link className="logo-container" to="/">
+        <HeaderContainer>
+            <LinkContainer to="/">
                 <Logo className="logo" />
-            </Link>
-            <div className="options">
-                <Link className="option" to="/shop">SHOP</Link>
-                <Link className="option" to="/contact">CONTACT</Link>
+            </LinkContainer>
+            <OptionsContainer>
+                <OptionDiv as={Link} to="/shop">SHOP</OptionDiv>
+                <OptionDiv as={Link} to="/contact">CONTACT</OptionDiv>
                 {signButton}
                 <CartIcon />
-            </div>
+            </OptionsContainer>
             {
                 hidden ? null : <CartDropdown />
             }
-        </div>
+        </HeaderContainer>
     )
 }
 

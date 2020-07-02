@@ -9,7 +9,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const middlewares = [];
 
 if (process.env.NODE_ENV === 'development') {
-    middlewares = [logger];
+    middlewares.push(logger);
 }
 
 const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(applyMiddleware(...middlewares)));

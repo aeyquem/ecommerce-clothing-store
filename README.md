@@ -12,6 +12,7 @@ This proyect is a store simulation that uses react related technologies and othe
 - Redux-persist
 - Reselect
 - SASS
+- Styled-components
 ## External services
 - Firebase
 - Heroku
