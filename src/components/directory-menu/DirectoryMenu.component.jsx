@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuItem from '../menu-item/MenuItem'
+import MenuItem from '../menu-item/MenuItem.component'
 import './directoryMenu.styles.scss'
 import { connect } from 'react-redux'
 import { selectDirectorySections } from '../../redux/directory/directory.selectors'
