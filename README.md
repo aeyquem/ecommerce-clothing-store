@@ -10,6 +10,7 @@ This proyect is a store simulation that uses react related technologies and othe
 - React-router
 - Redux
 - Redux-persist
+- Redux-saga
 - Reselect
 - Styled components
 - SASS
