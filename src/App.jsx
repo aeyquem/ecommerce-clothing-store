@@ -19,23 +19,23 @@ class App extends Component {
 
   componentDidMount() {
     const { setCurrentUser, /*collectionsArray*/ } = this.props;
-    this.unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    // this.unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(ss => {
-          setCurrentUser({
-            id: ss.id,
-            ...ss.data()
-          });
-        });
-      }
-      else {
-        setCurrentUser(userAuth);
-        //addCollectionsAndDocuments('collections', collectionsArray.map(({ title, items }) => ({ title, items })))
-      }
-    })
+    //     userRef.onSnapshot(ss => {
+    //       setCurrentUser({
+    //         id: ss.id,
+    //         ...ss.data()
+    //       });
+    //     });
+    //   }
+    //   else {
+    //     setCurrentUser(userAuth);
+    //     //addCollectionsAndDocuments('collections', collectionsArray.map(({ title, items }) => ({ title, items })))
+    //   }
+    // })
 
   }
 
