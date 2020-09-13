@@ -5,7 +5,6 @@ import ShopPage from './pages/shop-page/ShopPage.component';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/header/Header.component'
 import SignInAndRegisterPage from './pages/sign-in-and-register-page/SignInAndRegisterPage.component';
-import { auth, createUserProfileDocument, /*addCollectionsAndDocuments*/ } from './firebase/firebase.utils'
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions'
 import { createStructuredSelector } from 'reselect'
@@ -18,7 +17,7 @@ class App extends Component {
   unsuscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser, /*collectionsArray*/ } = this.props;
+    // const { setCurrentUser, /*collectionsArray*/ } = this.props;
     // this.unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
     //   if (userAuth) {

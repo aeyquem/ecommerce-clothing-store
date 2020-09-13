@@ -3,7 +3,7 @@ import './signIn.styles.scss'
 import FormInput from '../form-input/FormInput.component';
 import CustomButton from '../custom-button/CustomButton.component';
 
-import { auth, signInWithGoole } from '../../firebase/firebase.utils'
+import { auth } from '../../firebase/firebase.utils'
 import { connect } from 'react-redux';
 import { googleSignInStart } from '../../redux/user/user.actions';
 
