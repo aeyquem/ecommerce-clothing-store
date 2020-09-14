@@ -16,8 +16,15 @@ if (process.env.NODE_ENV === 'development') {
     middlewares.push(logger);
 }
 
-const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(applyMiddleware(...middlewares)));
-//const store = createStore(rootReducer, applyMiddleware(...middlewares));
+let store = null;
+
+if (!composeEnhancers) {
+    store = createStore(rootReducer, applyMiddleware(...middlewares));
+}
+else {
+    store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(applyMiddleware(...middlewares)));
+}
+
 sagaMiddleware.run(rootSaga)
 
 export const persistor = new persistStore(store);

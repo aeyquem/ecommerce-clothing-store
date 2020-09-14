@@ -6,17 +6,21 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/header/Header.component'
 import SignInAndRegisterPage from './pages/sign-in-and-register-page/SignInAndRegisterPage.component';
 import { connect } from 'react-redux';
-import { setCurrentUser } from './redux/user/user.actions'
 import { createStructuredSelector } from 'reselect'
 import { selectCurrentUser, /*selectCol*/ } from './redux/user/user.selectors';
 //import { selectCollectionsForPreview } from './redux/shop/shop.selectors'
 import CheckoutPage from './pages/checkout-page/CheckoutPage.component';
+import { checkUserSession } from './redux/user/user.actions';
 
 class App extends Component {
 
   unsuscribeFromAuth = null;
 
   componentDidMount() {
+
+    const { checkUserSession } = this.props;
+    checkUserSession();
+
     // const { setCurrentUser, /*collectionsArray*/ } = this.props;
     // this.unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
@@ -66,8 +70,8 @@ const mapStateToProps = createStructuredSelector({
   //collectionsArray: selectCollectionsForPreview
 });
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
+const mapDispatchToProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
