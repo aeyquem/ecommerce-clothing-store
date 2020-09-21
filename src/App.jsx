@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import HomePage from './pages/home-page/HomePage.component';
 import ShopPage from './pages/shop-page/ShopPage.component';
@@ -12,56 +12,27 @@ import { selectCurrentUser, /*selectCol*/ } from './redux/user/user.selectors';
 import CheckoutPage from './pages/checkout-page/CheckoutPage.component';
 import { checkUserSession } from './redux/user/user.actions';
 
-class App extends Component {
+const App = ({ checkUserSession }) => {
 
-  unsuscribeFromAuth = null;
-
-  componentDidMount() {
-
-    const { checkUserSession } = this.props;
+  useEffect(() => {
     checkUserSession();
+  }, [checkUserSession])
 
-    // const { setCurrentUser, /*collectionsArray*/ } = this.props;
-    // this.unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+  return (
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={CheckoutPage} />
+        <Route exact path="/signin"
+          render={() => this.props.currentUser ?
+            (<Redirect to="/" />) :
+            (<SignInAndRegisterPage />)} />
+      </Switch>
+    </div>
+  );
 
-    //   if (userAuth) {
-    //     const userRef = await createUserProfileDocument(userAuth);
-
-    //     userRef.onSnapshot(ss => {
-    //       setCurrentUser({
-    //         id: ss.id,
-    //         ...ss.data()
-    //       });
-    //     });
-    //   }
-    //   else {
-    //     setCurrentUser(userAuth);
-    //     //addCollectionsAndDocuments('collections', collectionsArray.map(({ title, items }) => ({ title, items })))
-    //   }
-    // })
-
-  }
-
-  componentWillUnmount() {
-    this.unsuscribeFromAuth();
-  }
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={CheckoutPage} />
-          <Route exact path="/signin"
-            render={() => this.props.currentUser ?
-              (<Redirect to="/" />) :
-              (<SignInAndRegisterPage />)} />
-        </Switch>
-      </div>
-    );
-  }
 
 }
 
